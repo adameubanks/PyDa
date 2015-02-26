@@ -1,0 +1,68 @@
+
+To install PyDa, simply run the run file and lock it to your unity-ubuntu launcher.
+
+You can type in commands and press enter to execute them.
+
+To do speech recognition simply press enter, say what you want to say and wait for it to load, then press enter to
+execute.
+
+PyDa is not case sensitive.
+
+Commands:
+
+#Chatting Features
+do you want to <thing>
+do you like to <thing>
+i hate <thing>
+you are a <thing>
+are you a <thing>
+
+#Webpage openers
+mail <opens gmail>
+search <opens google>
+facebook <opens facebook>
+twitter <opens twitter>
+youtube <open youtube>
+
+#Time
+time <shows full date>
+count <number to count to>
+
+#OS commands
+web <opens firefox>
+logout <logs out>
+music <opens rhythmbox>
+skype <opens skype>
+text <opens gedit>
+math <opens gnome-calculator>
+quit <closes pyda>
+
+battery <displays battery life>
+
+#Math
+<num> + <num>
+<num> - <num>
+<num> * <num>
+<num> / <num>
+<num> % <num>
+
+#Info from wikipedia
+#these all give wikipedia summaries of <thing>
+look up <thing>
+who is <thing>
+who was <thing>
+what is <thing>
+where is <thing>
+
+#translate
+#to find <language key> type in "languages"
+translate <text> into <language key>
+
+#the language key is 2 letters. Example:
+translate hello in es
+hola
+translate hello in de
+hallo
+
+
+#Thank you for supporting PyDa if you made it this far
