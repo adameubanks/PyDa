@@ -52,7 +52,7 @@ class MyFrame(wx.Frame):
         #the variables
         time = ["hour","day","month","year"]
         insults = ["weirdo" , "stupid" , "weird" , "dumb" , "idiot" , "retard" , "retarded" , "fat" , "lazy" , 
-        "annoying" , "moron" , "simp" ,"big" , "ugly" , "sad" , "wimp"]
+        "annoying" , "moron" , "simp" ,"big" , "ugly" , "sad" , "wimp","troll"]
         complements = ["nice","happy","good","smart","wonderful","really ","intellegent","awesome","beautiful"]
 
         #generate randNum
@@ -66,6 +66,7 @@ class MyFrame(wx.Frame):
                 espeak.synth("I don't think thats a good idea")
             if ranNum == 3:
                 espeak.synth("Yes! lets do it")
+        
         if input.startswith("do you like to "):
             if ranNum == 1:
                 espeak.synth("Sometimes I do")
@@ -73,6 +74,7 @@ class MyFrame(wx.Frame):
                 espeak.synth("No, I hate doing that")
             if ranNum == 3:
                 espeak.synth("Yes, I do that all the time")
+        
         if input.startswith("i hate "):
             if 'khanrad' in input[6:]:
                 espeak.synth("What? khanrad is the coolest person ever!")
@@ -81,22 +83,49 @@ class MyFrame(wx.Frame):
             elif ranNum <= 2:
                 espeak.synth("I don't like "+input[6:]+' either')
 
+
+#Main Chat Feature:
+        words = input.split
+
         if input.startswith("you are a"):
-            if any(input[7:].startswith(c) for c in complements):
+            if any(input[10:].startswith(c) for c in complements):
                 if ranNum == 1:
                     espeak.synth("Thank you, I know")
                 if ranNum == 2:
                     espeak.synth("isn't it obvious?")
                 if ranNum == 3:
                     espeak.synth("you made my day!")
-            if any(input[7:].startswith(i) for i in insults):
+            elif any(input[11:].startswith(c) for c in complements):
+                if ranNum == 1:
+                    espeak.synth("Thank you, I know")
+                if ranNum == 2:
+                    espeak.synth("isn't it obvious?")
+                if ranNum == 3:
+                    espeak.synth("you made my day!")
+            
+            if any(input[10:].startswith(i) for i in insults):
                 if ranNum == 1:
                     espeak.synth("I know you are but what am i?")
                 if ranNum == 2:
-                    espeak.synth("You are a troll. I eat trolls")
+                    espeak.synth("Don't troll me. bad things will happen")
                 if ranNum == 3:
                     espeak.synth("sorry, i was to busy, BLOCKING OUT THE HATERS!")
-            else:
+            elif any(input[11:].startswith(i) for i in insults):
+                if ranNum == 1:
+                    espeak.synth("I know you are but what am i?")
+                if ranNum == 2:
+                    espeak.synth("Don't troll me. bad things will happen")
+                if ranNum == 3:
+                    espeak.synth("sorry, i was to busy, BLOCKING OUT THE HATERS!")
+            
+            elif input[10:] or input[11:] not in insults:
+                if ranNum == 1:
+                    espeak.synth("I don't know what you mean by that")
+                if ranNum == 2:
+                    espeak.synth("Your words are not in my library")
+                if ranNum == 3:
+                    espeak.synth("No comment")
+            elif input[10:] or input[11:] not in complements:
                 if ranNum == 1:
                     espeak.synth("I don't know what you mean by that")
                 if ranNum == 2:
@@ -104,28 +133,46 @@ class MyFrame(wx.Frame):
                 if ranNum == 3:
                     espeak.synth("No comment")
 
+
         if input.startswith("are you a"):
-            if any(input[7:].startswith(c) for c in complements):
+            if any(input[10:].startswith(c) for c in complements):
                 if ranNum == 1:
-                    espeak.synth("of course I am")
+                    espeak.synth("yes i am")
                 if ranNum == 2:
                     espeak.synth("isn't it obvious?")
                 if ranNum == 3:
                     espeak.synth("you betcha")
-            if any(input[7:].startswith(i) for i in insults):
+            elif any(input[11:].startswith(c) for c in complements):
                 if ranNum == 1:
-                    espeak.synth("No, no I'm not")
+                    espeak.synth("yes i am")
                 if ranNum == 2:
-                    espeak.synth("You are a troll. I eat trolls")
+                    espeak.synth("isn't it obvious?")
                 if ranNum == 3:
-                    espeak.synth("I cant even")
-            else:
+                    espeak.synth("you betcha")
+
+            if any(input[10:].startswith(i) for i in insults):
                 if ranNum == 1:
-                    espeak.synth("I don't know what that is")
+                    espeak.synth("no, are you")
+                if ranNum == 2:
+                    espeak.synth("don't troll me, i eat trolls")
+                if ranNum == 3:
+                    espeak.synth("does it look like i am?")
+            elif any(input[11:].startswith(i) for i in insults):
+                if ranNum == 1:
+                    espeak.synth("no, are you")
+                if ranNum == 2:
+                    espeak.synth("don't troll me, i eat trolls")
+                if ranNum == 3:
+                    espeak.synth("does it look like i am?")
+            
+            elif input[10:] or input[11:] not in insults or complements:
+                if ranNum == 1:
+                    espeak.synth("I don't know what you mean by that")
                 if ranNum == 2:
                     espeak.synth("Your words are not in my library")
                 if ranNum == 3:
                     espeak.synth("No comment")
+
 
         #webbrowser openers
         if "mail" in input:
@@ -261,18 +308,33 @@ class MyFrame(wx.Frame):
             print wikipedia.summary(wikiLookUp)
 
         if input.startswith('what is '):
-            wikiLookUp = input[8:]
-            print "Searched for: "+wikiLookUp
-            espeak.synth("Searched for: "+wikiLookUp)
-            print wikipedia.summary(wikiLookUp)
+            print input[7:8]
+            if input[8:10] == 'a ':
+                wikiLookUp = input[10:]
+                print "Searched for: "+wikiLookUp
+                espeak.synth("Searched for: "+wikiLookUp)
+                print wikipedia.summary(wikiLookUp)
+            if input[8:11] == 'an ':
+                wikiLookUp = input[11:]
+                print "Searched for: "+wikiLookUp
+                espeak.synth("Searched for: "+wikiLookUp)
+                print wikipedia.summary(wikiLookUp)
+            elif input[8:11] != 'an ' and input[8:10] != 'a ':
+                wikiLookUp = input[8:]
+                print "Searched for: "+wikiLookUp
+                espeak.synth("Searched for: "+wikiLookUp)
+                print wikipedia.summary(wikiLookUp)
 
         if input.startswith('where is '):
             wikiLookUp = input[9:]
             print "Searched for: "+wikiLookUp
             espeak.synth("Searched for: "+wikiLookUp)
             print wikipedia.summary(wikiLookUp)
+        if input.startswith('how '):
+            print "Searched for: "+input
+            espeak.synth("Searched for: "+input)
 
-        '''Translate'''
+        #Translate
 
         if input.startswith("translate "):
             import goslate
@@ -283,11 +345,20 @@ class MyFrame(wx.Frame):
             print 'Translated: '+trans+' into '+lang
             print gs.translate(trans , lang)
         if 'languages' in input:
+            import goslate
+            gs = goslate.Goslate()
             print "I know 90 languages:  use the languages below and there key to translate: "
             espeak.synth("I know 90 languages")
             print gs.get_languages()
 
-        '''Speech Recognition'''
+        #help
+        if 'help' in input:
+            with open('help.txt', 'r') as fin:
+                print fin.read()
+
+
+
+        #-----------Speech Recognition----------#
         if input == '':
             import speech_recognition as sr
             r = sr.Recognizer()
