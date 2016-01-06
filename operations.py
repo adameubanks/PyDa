@@ -1,9 +1,10 @@
+from espeak import espeak
+import webbrowser
+import os
+from datetime import datetime
+from time import sleep
+
 def oper(input):
-    from espeak import espeak
-    import webbrowser
-    import os
-    from datetime import datetime
-    from time import sleep
     #webrowser openners
     if "mail" in input:
         webbrowser.open("https://mail.google.com/mail/u/0/#inbox")
