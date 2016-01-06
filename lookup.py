@@ -1,7 +1,8 @@
+import wikipedia
+from findpic import imgLookup
+from espeak import espeak
+
 def lookup(input):
-    import wikipedia
-    from findpic import imgLookup
-    from espeak import espeak
     if input.startswith('look up'):
         wikiLookUp = input[7:]
         print "Searched for: "+wikiLookUp
