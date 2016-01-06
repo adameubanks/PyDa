@@ -1,6 +1,7 @@
+from espeak import espeak
+import math
+
 def math(input):
-    from espeak import espeak
-    import math
     if '+' in input:
         find_add = input.find('+')
         resultAdd = str(float(input[:find_add]) + float(input[find_add+1:]))
