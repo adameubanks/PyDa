@@ -1,10 +1,10 @@
 from espeak import espeak
+from random import randrange
 
 def chat(input):
     insults = ["weirdo" , "stupid" , "weird" , "dumb" , "idiot" , "retard" , "retarded" , "fat" , "lazy" , 
     "annoying" , "moron" , "simp" ,"big" , "ugly" , "sad" , "wimp","troll"]
     complements = ["nice","happy","good","smart","wonderful","really ","intellegent","awesome","beautiful"]
-    from random import randrange
     ranNum = randrange(1,4)
     #chatting features of PyDa:
     if input.startswith("do you want to "):
