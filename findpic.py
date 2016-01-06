@@ -1,14 +1,14 @@
-def imgLookup(searchTerm):
-    import os
-    import sys
-    import time
-    from urllib import FancyURLopener
-    import urllib2
-    import simplejson
-    import cv2
-    import numpy as np
-    import urllib
+import os
+import sys
+import time
+from urllib import FancyURLopener
+import urllib2
+import simplejson
+import cv2
+import numpy as np
+import urllib
 
+def imgLookup(searchTerm):
     searchTerm = searchTerm.replace(' ','%20')
 
     class MyOpener(FancyURLopener): 
@@ -35,5 +35,4 @@ def imgLookup(searchTerm):
             cv2.imshow('Picture',resized)
             if cv2.waitKey() & 0xff == 27:
                 quit()
-
         time.sleep(2)
